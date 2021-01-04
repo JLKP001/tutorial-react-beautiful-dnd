@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Task } from "./Task";
 
 const Container = styled.div`
   margin: 8px;
@@ -17,7 +18,11 @@ export const Column = ({ column, tasks }) => {
   return (
     <Container>
       <Title>{column.title}</Title>
-      <TaskList>Tasks go here</TaskList>
+      <TaskList>
+        {tasks.map((task) => {
+          return <Task key={task.id} task={task} />;
+        })}
+      </TaskList>
     </Container>
   );
 };
