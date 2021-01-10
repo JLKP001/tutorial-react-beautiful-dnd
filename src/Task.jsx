@@ -17,14 +17,6 @@ const Container = styled.div`
   display: flex;
 `;
 
-const Handle = styled.div`
-  width: 20px;
-  height: 20px;
-  background-color: orange;
-  border-radius: 4px;
-  margin-right: 8px;
-`;
-
 export const Task = ({ task, index }) => {
   const isDragDisabled = task.id === "task-1";
   return (
@@ -36,11 +28,11 @@ export const Task = ({ task, index }) => {
       {(provided, snapshot) => (
         <Container
           {...provided.draggableProps}
+          {...provided.dragHandleProps}
           ref={provided.innerRef}
           isDragging={snapshot.isDragging}
           isDragDisabled={isDragDisabled}
         >
-          <Handle {...provided.dragHandleProps} />
           {task.content}
         </Container>
       )}
