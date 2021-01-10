@@ -24,11 +24,11 @@ const TaskList = styled.div`
   min-height: 100px;
 `;
 
-export const Column = ({ column, tasks }) => {
+export const Column = ({ column, tasks, isDropDisabled }) => {
   return (
     <Container>
       <Title>{column.title}</Title>{" "}
-      <Droppable droppableId={column.id}>
+      <Droppable droppableId={column.id} isDropDisabled={isDropDisabled}>
         {(provided, snapshot) => (
           <TaskList
             ref={provided.innerRef}
